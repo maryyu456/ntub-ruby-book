@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>書名:</strong>
+  <%= @book.name %>
+</p>
+
+<p>
+  <strong>作者:</strong>
+  <%= @book.author %>
+</p>
+
+<p>
+  <strong>出版年:</strong>
+  <%= @book.year %>
+</p>
+
+<p>
+  <strong>書本封面：</strong></br>
+  <%= image_tag @book.image if @book.image? %> <!-- 如果 book 已有圖片的話，就顯示 -->
+</p>
+
+<%= link_to '編輯好書', edit_book_path(@book), class: "btn btn-warning btn-xs" %> |
+<%= link_to '回上一頁', books_path, class: "btn btn-default btn-xs" %>

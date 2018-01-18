@@ -1,0 +1,63 @@
+<body id="page-top">
+  <header class="masthead text-center text-white d-flex">
+    <div class="title">
+      <div class="row">
+        <div class="col-lg-10 mx-auto">
+          <h1 class="text-uppercase">
+            <strong>好書推薦</strong>
+          </h1>
+           <hr>
+          <%= link_to '馬上新增好書', new_book_path, class: "btn btn-default" %>
+          <%= link_to '好書列表', books_path(@books, anchor: "blog_id-"), class: "btn btn-default"  %>
+         
+        </div>
+        
+        <div class="col-lg-8 mx-auto">
+         
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+    
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/creative.min.js"></script>
+  
+  <div id="blog_id-" style="padding-top: 4em;margin-top: -4em;"></div>
+  <table class = "table">
+    <thead>
+      <tr>
+        <td>書名</td>
+        <td>作者</td>
+        <td>出版年</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @books.each do |book| %>
+        <tr>
+          <td><%= book.name %></td>
+          <td><%= book.author %></td>
+          <td><%= book.year %></td>
+          <td><%= link_to "詳細簡介", book_path(book), class: "btn btn-info btn-xs" %></td>
+          <td><%= link_to "編輯好書", edit_book_path(book), class: "btn btn-warning btn-xs" %></td>
+          <td><%= link_to "刪除好書", book_path(book), method: "delete", data: {confirm: "are you sure ?!", class: "btn btn-danger btn-xs"} %></td>
+        </tr>
+      <% end %>
+    </tbody>
+    <tfoot>
+    </tfoot>
+  </table>
+</body>
+
+
+

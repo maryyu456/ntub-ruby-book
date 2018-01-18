@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>好書推薦</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    
+    
+    <%= image_tag "book_bg.jpg", class: 'style_bg' %>
+    <div class="block"></div>
+    <div class="container">
+      <% if flash[:notice] %>
+        <div class="alert alert-warning" role="alert"><%= flash[:notice] %></div>
+      <% end %>
+      <%= yield %>  
+    </div>
+    
+    
+    <!-- app/views/layouts/application.html.erb -->
+    <div id="modal-holder"></div>
+  </body>
+</html>
